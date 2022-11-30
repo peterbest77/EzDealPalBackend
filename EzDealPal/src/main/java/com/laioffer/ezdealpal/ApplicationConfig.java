@@ -16,19 +16,19 @@ public class ApplicationConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("com.laioffer.onlineOrder.entity");
+        sessionFactory.setPackagesToScan("com.laioffer.ezdealpal.entity");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        String RDS_INSTANCE = "";
-        String USERNAME = "";
-        String PASSWORD = "";
+        String RDS_INSTANCE = "flagcamp4.cvylnilygfox.us-east-1.rds.amazonaws.com";
+        String USERNAME = "admin";
+        String PASSWORD = "lele11170308";
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://" + RDS_INSTANCE + ":3306/onlineOrder?createDatabaseIfNotExist=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://" + RDS_INSTANCE + ":3306/flagcamp4?createDatabaseIfNotExist=true&serverTimezone=UTC");
         dataSource.setUsername(USERNAME);
         dataSource.setPassword(PASSWORD);
         return dataSource;

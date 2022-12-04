@@ -23,12 +23,12 @@ public class ApplicationConfig {
 
     @Bean(name = "dataSource")
     public DataSource dataSource() {
-        String RDS_INSTANCE = "flagcamp4.cvylnilygfox.us-east-1.rds.amazonaws.com";
+        String RDS_INSTANCE = "flagcamp-instance.cvylnilygfox.us-east-1.rds.amazonaws.com";
         String USERNAME = "admin";
         String PASSWORD = "lele11170308";
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://" + RDS_INSTANCE + ":3306/flagcamp4?createDatabaseIfNotExist=true&serverTimezone=UTC");
+        dataSource.setUrl("jdbc:mysql://" + RDS_INSTANCE + ":3306/flagCamp?createDatabaseIfNotExist=true&serverTimezone=UTC");
         dataSource.setUsername(USERNAME);
         dataSource.setPassword(PASSWORD);
         return dataSource;

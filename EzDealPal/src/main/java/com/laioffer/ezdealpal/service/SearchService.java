@@ -21,6 +21,7 @@ public class SearchService {
     {
         return d * Math.PI / 180.0;
     }
+
     public static double getDistance(double lon1,double lat1,double lon2, double lat2) {
         double radLat1 = rad(lat1);
         double radLat2 = rad(lat2);

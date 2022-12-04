@@ -1,74 +1,79 @@
 package com.laioffer.ezdealpal.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
-                @UniqueConstraint(columnNames = "email")
-        })
-public class User {
+@Table(name = "users")
+public class User implements Serializable {
+    private static final long serialVersionUID = 2652327633296064143L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String userId; //email
 
-    @NotBlank
-    @Size(max = 20)
-    private String username;
+    private String name;
 
-    @NotBlank
-    @Size(max = 50)
-    @Email
-    private String email;
-
-    @NotBlank
-    @Size(max = 120)
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    private String phoneNumber;
+
+    private int zipcode;
+
+    private String address;
+
+    private Double scoreAsBuyer;
+
+    private Double scoreAsSeller;
 
     public User() {
     }
 
-    public User(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    public String getUserId() {
+        return userId;
     }
 
-    public Long getId() {
-        return id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getName() {
+        return name;
     }
 
-    public String getUsername() {
-        return username;
+    public Double getScoreAsBuyer() {
+        return scoreAsBuyer;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setScoreAsBuyer(Double scoreAsBuyer) {
+        this.scoreAsBuyer = scoreAsBuyer;
     }
 
-    public String getEmail() {
-        return email;
+    public Double getScoreAsSeller() {
+        return scoreAsSeller;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setScoreAsSeller(Double scoreAsSeller) {
+        this.scoreAsSeller = scoreAsSeller;
+    }
+
+    public int getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(int zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setName(String username) {
+        this.name = username;
     }
 
     public String getPassword() {
@@ -79,11 +84,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

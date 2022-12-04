@@ -29,10 +29,10 @@ public class UserDao {
         }
     }
 
-    public User getUser(String email) {
+    public User getUser(String userId) {
         User user = null;
         try (Session session = sessionFactory.openSession()) {
-            user = session.get(User.class, email);
+            user = session.get(User.class, userId);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -34,8 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("SELECT username, email, password, enabled FROM users WHERE email=?")
-                .authoritiesByUsernameQuery("SELECT email, role FROM roles WHERE email=?"); // what is the column name for role?
+                .usersByUsernameQuery("SELECT userId, password, enabled FROM users WHERE userId=?") // return no result for user '' when testing?
+                .authoritiesByUsernameQuery("SELECT userId, role FROM roles WHERE userId=?"); 
 
     }
 

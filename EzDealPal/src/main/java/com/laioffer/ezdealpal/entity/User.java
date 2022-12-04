@@ -8,8 +8,11 @@ import java.io.Serializable;
 public class User implements Serializable {
     private static final long serialVersionUID = 2652327633296064143L;
 
+    @NotBlank
+    @Size(max = 50)
+    @Email
     @Id
-    private String userId; //email
+    private String userId; // email
 
     private String name;
 
@@ -28,6 +31,11 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
+    
     public String getUserId() {
         return userId;
     }

@@ -24,6 +24,8 @@ public class User implements Serializable {
     private Double scoreAsBuyer;
 
     private Double scoreAsSeller;
+    
+    private boolean enabled;
 
     public User() {
     }
@@ -95,5 +97,13 @@ public class User implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

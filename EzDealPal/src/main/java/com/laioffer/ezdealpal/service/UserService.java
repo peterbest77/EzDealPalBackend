@@ -18,7 +18,7 @@ public class UserService {
         userDao.signUp(user);
     }
 
-    public User getCustomer(String email) {
-        return userDao.getUser(email);
+    public User getCustomer(String userId) {
+        return userDao.getUser(userId);
     }
 }

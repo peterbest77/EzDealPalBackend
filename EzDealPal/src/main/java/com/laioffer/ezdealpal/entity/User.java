@@ -27,22 +27,24 @@ public class User implements Serializable {
     private Double scoreAsBuyer;
 
     private Double scoreAsSeller;
-    
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
     private boolean enabled;
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Product> productList;
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
-    private boolean enabled;
 
     public User() {
     }

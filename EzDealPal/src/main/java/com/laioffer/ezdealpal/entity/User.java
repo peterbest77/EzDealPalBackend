@@ -28,21 +28,21 @@ public class User implements Serializable {
 
     private Double scoreAsSeller;
 
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
-    }
+//    public List<Product> getProductList() {
+//        return productList;
+//    }
+//
+//    public void setProductList(List<Product> productList) {
+//        this.productList = productList;
+//    }
 
     private boolean enabled;
 
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
-    private List<Product> productList;
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JsonIgnore
+//    private List<Product> productList;
 
 
 

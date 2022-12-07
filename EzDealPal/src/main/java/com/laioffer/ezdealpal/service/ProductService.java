@@ -28,7 +28,7 @@ public class ProductService {
         existingProduct.setProductDescription(product.getProductDescription());
         existingProduct.setProductKeywords(product.getProductKeywords());
         existingProduct.setLastModifiedDate(product.getLastModifiedDate());
-        existingProduct.setStatus(product.getStatus());
+        //existingProduct.setStatus(product.getStatus());
         return repository.save(existingProduct);
     }
 }

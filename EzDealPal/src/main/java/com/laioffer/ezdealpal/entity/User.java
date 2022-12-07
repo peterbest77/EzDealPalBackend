@@ -12,7 +12,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 2652327633296064143L;
 
     @Id
-    private String userId; //email
+    private String userId; // email
 
     private String name;
 
@@ -27,6 +27,8 @@ public class User implements Serializable {
     private Double scoreAsBuyer;
 
     private Double scoreAsSeller;
+    
+    private boolean enabled;
 
     public boolean isEnabled() {
         return enabled;
@@ -45,6 +47,11 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
+    
     public String getUserId() {
         return userId;
     }
@@ -107,5 +114,13 @@ public class User implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

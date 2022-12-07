@@ -15,7 +15,7 @@ public class UserService {
     }
 
     public void signUp(User user) {
-        user.setEnabled(true);
+        //user.setEnabled(true);
         userDao.signUp(user);
     }
 

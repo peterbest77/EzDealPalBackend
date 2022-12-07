@@ -15,10 +15,11 @@ public class UserService {
     }
 
     public void signUp(User user) {
+        user.setEnabled(true);
         userDao.signUp(user);
     }
 
-    public User getCustomer(String email) {
-        return userDao.getUser(email);
+    public User getUserId(String userId) {
+        return userDao.getUser(userId);
     }
 }

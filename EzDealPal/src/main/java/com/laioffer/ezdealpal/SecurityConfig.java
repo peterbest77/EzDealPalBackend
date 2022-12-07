@@ -6,7 +6,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+
 
 import javax.sql.DataSource;
 
@@ -34,14 +36,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("SELECT username, email, password, enabled FROM users WHERE email=?")
-                .authoritiesByUsernameQuery("SELECT email, role FROM roles WHERE email=?"); // what is the column name for role?
+                .usersByUsernameQuery("SELECT userId, password, enabled FROM users WHERE userId=?")
+                .authoritiesByUsernameQuery("SELECT userId, authorities FROM authorities WHERE userId=?"); // what is the column name for role?
 
     }
 
-    @Bean
-    public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-    }
+@Bean
+public static NoOpPasswordEncoder passwordEncoder() {
+    return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+}
+
 }
 

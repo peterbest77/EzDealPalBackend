@@ -22,6 +22,10 @@ public class Product implements Serializable {
     private Integer productID;
     private String zipcode;
 
+    @ManyToOne
+    @JsonIgnore
+    private User user;
+
     public String getSellerID() {
         return sellerID;
     }

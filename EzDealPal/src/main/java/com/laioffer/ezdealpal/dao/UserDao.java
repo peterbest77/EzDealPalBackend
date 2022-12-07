@@ -1,5 +1,6 @@
 package com.laioffer.ezdealpal.dao;
 
+import com.laioffer.ezdealpal.entity.Authorities;
 import com.laioffer.ezdealpal.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,10 +13,15 @@ public class UserDao {
     private SessionFactory sessionFactory;
 
     public void signUp(User user) {
+        Authorities authorities = new Authorities();
+        authorities.setAuthorities("ROLE_USER");
+        authorities.setUserId(user.getUserId());
+
         Session session = null;
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();
+            session.save(authorities);
             session.save(user);
             session.getTransaction().commit();
 

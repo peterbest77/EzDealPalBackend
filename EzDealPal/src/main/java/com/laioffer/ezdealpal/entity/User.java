@@ -1,7 +1,10 @@
 package com.laioffer.ezdealpal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -25,6 +28,20 @@ public class User implements Serializable {
 
     private Double scoreAsSeller;
     
+    private boolean enabled;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Product> productList;
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     private boolean enabled;
 
     public User() {

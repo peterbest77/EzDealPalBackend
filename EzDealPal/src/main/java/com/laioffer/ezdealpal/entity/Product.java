@@ -9,37 +9,50 @@ import java.util.List;
 @Table(name = "products")
 public class Product implements Serializable {
     private static final long serialVersionUID = 2455760938074036111L;
-    private String sellerID;
-    private String buyerId;
-    private String pictureID;
-    private String productName;
-    private String productKeywords;
-    private String productDescription;
-    private String publicDate;
-    private String lastModifiedDate;
-    private Enum status;
+
+
+    //private String sellerID;
+    //private String buyerId;
     @Id
     private Integer productID;
+    private String Url;
+    private String productName;
+    private String lastModifiedDate;
+    private String pictureID;
+    private String productDescription;
+    private String productKeywords;
+    private String publicDate;
+    //private Enum status;
     private String zipcode;
 
-    @ManyToOne
-    @JsonIgnore
-    private User user;
+    private String userId;
 
-    public String getSellerID() {
-        return sellerID;
+//    @ManyToOne
+//    @JsonIgnore
+//    private User user;
+
+//    public String getSellerID() {
+//        return sellerID;
+//    }
+
+//    public void setSellerID(String sellerID) {
+//        this.sellerID = sellerID;
+//    }
+//
+//    public String getBuyerId() {
+//        return buyerId;
+//    }
+//
+//    public void setBuyerId(String buyerId) {
+//        this.buyerId = buyerId;
+//    }
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setSellerID(String sellerID) {
-        this.sellerID = sellerID;
-    }
-
-    public String getBuyerId() {
-        return buyerId;
-    }
-
-    public void setBuyerId(String buyerId) {
-        this.buyerId = buyerId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPictureID() {
@@ -58,6 +71,13 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
     public String getProductKeywords() {
         return productKeywords;
     }
@@ -90,13 +110,13 @@ public class Product implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public Enum getStatus() {
-        return status;
-    }
-
-    public void setStatus(Enum status) {
-        this.status = status;
-    }
+//    public Enum getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(Enum status) {
+//        this.status = status;
+//    }
 
     public Integer getProductID() {
         return productID;

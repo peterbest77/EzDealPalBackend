@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "zipcode")
@@ -15,6 +16,8 @@ public class ZipcodeMap implements Serializable {
     String state;
     String latitude;
     String longitude;
+
+
 
     public String getZipcode() {
         return zipcode;

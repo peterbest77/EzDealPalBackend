@@ -68,13 +68,13 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-//    public String getUrl() {
-//        return Url;
-//    }
-//
-//    public void setUrl(String url) {
-//        Url = url;
-//    }
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
     public String getProductKeywords() {
         return productKeywords;
     }

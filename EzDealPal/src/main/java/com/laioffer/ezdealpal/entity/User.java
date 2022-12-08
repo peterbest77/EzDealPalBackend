@@ -40,9 +40,10 @@ public class User implements Serializable {
 
 
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JsonIgnore
-//    private List<Product> productList;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Product> productList;
 
 
 
@@ -64,6 +65,14 @@ public class User implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
 //    public Double getScoreAsBuyer() {

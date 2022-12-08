@@ -60,4 +60,11 @@ public class ApplicationConfig {
 
         return em;
     }
+    
+    @Bean(name="transactionManager")
+    public PlatformTransactionManager transactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
 }

@@ -24,7 +24,6 @@ public class ProductService {
     public Product updateProduct(Product product) {
         Product existingProduct = repository.findById(product.getProductID()).orElse(null);
         existingProduct.setProductName(product.getProductName());
-        existingProduct.setPictureID(product.getPictureID());
         existingProduct.setProductDescription(product.getProductDescription());
         existingProduct.setProductKeywords(product.getProductKeywords());
         existingProduct.setLastModifiedDate(product.getLastModifiedDate());

@@ -22,7 +22,7 @@ public class Product implements Serializable {
     private String productDescription;
     private String productKeywords;
     private String publicDate;
-    //private Enum status;
+    private EStatus status;
     private String zipcode;
 
     private String userId;
@@ -110,13 +110,13 @@ public class Product implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-//    public Enum getStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(Enum status) {
-//        this.status = status;
-//    }
+   public EStatus getStatus() {
+       return status;
+   }
+
+   public void setStatus(EStatus status) {
+       this.status = status;
+   }
 
     public Integer getProductID() {
         return productID;

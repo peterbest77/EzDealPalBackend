@@ -13,6 +13,13 @@ import java.io.Serializable;
 
         private static final long serialVersionUID = 8734140534986494039L;
 
+
+
+        @Id
+        private String userId;
+
+        private String authorities;
+
         public String getUserId() {
             return userId;
         }
@@ -20,13 +27,6 @@ import java.io.Serializable;
         public void setUserId(String userId) {
             this.userId = userId;
         }
-
-        @Id
-        private String userId;
-
-        private String authorities;
-
-
 
         public String getAuthorities() {
             return authorities;

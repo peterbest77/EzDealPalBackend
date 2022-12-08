@@ -62,7 +62,7 @@ public class ApplicationConfig {
 
         return em;
     }
-    
+
     @Bean(name="transactionManager")
     public TransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();

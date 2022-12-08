@@ -21,14 +21,16 @@ public class Product implements Serializable {
     private int productID;
     private String Url;
     private String productName;
-    private String lastModifiedDate;
+    //private String lastModifiedDate;
     private String productDescription;
     private String productKeywords;
     private String publicDate;
-    @Column(name="status", nullable = false, columnDefinition = "AVAILABLE")
+   // @Column(name="status", nullable = false, columnDefinition = "AVAILABLE")
     private String status;
 
-    private String zipcode;
+    @ManyToOne
+    @JsonIgnore
+    private ZipcodeMap ZipcodeMap;
 
     @ManyToOne
     @JsonIgnore
@@ -66,13 +68,13 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String getUrl() {
-        return Url;
-    }
-
-    public void setUrl(String url) {
-        Url = url;
-    }
+//    public String getUrl() {
+//        return Url;
+//    }
+//
+//    public void setUrl(String url) {
+//        Url = url;
+//    }
     public String getProductKeywords() {
         return productKeywords;
     }
@@ -97,13 +99,13 @@ public class Product implements Serializable {
         this.publicDate = publicDate;
     }
 
-    public String getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(String lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
+//    public String getLastModifiedDate() {
+//        return lastModifiedDate;
+//    }
+//
+//    public void setLastModifiedDate(String lastModifiedDate) {
+//        this.lastModifiedDate = lastModifiedDate;
+//    }
 
    public String getStatus() {
        return status;
@@ -117,7 +119,7 @@ public class Product implements Serializable {
         return productID;
     }
 
-    public int getZipcode() {
-        return user.getZipcode();
+    public String getZipcode() {
+        return ZipcodeMap.getZipcode();
     }
 }

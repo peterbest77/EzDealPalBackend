@@ -24,9 +24,9 @@ public class User implements Serializable {
 
     private String address;
 
-    private Double scoreAsBuyer;
-
-    private Double scoreAsSeller;
+//    private Double scoreAsBuyer;
+//
+//    private Double scoreAsSeller;
 
 //    public List<Product> getProductList() {
 //        return productList;
@@ -66,21 +66,21 @@ public class User implements Serializable {
         return name;
     }
 
-    public Double getScoreAsBuyer() {
-        return scoreAsBuyer;
-    }
-
-    public void setScoreAsBuyer(Double scoreAsBuyer) {
-        this.scoreAsBuyer = scoreAsBuyer;
-    }
-
-    public Double getScoreAsSeller() {
-        return scoreAsSeller;
-    }
-
-    public void setScoreAsSeller(Double scoreAsSeller) {
-        this.scoreAsSeller = scoreAsSeller;
-    }
+//    public Double getScoreAsBuyer() {
+//        return scoreAsBuyer;
+//    }
+//
+//    public void setScoreAsBuyer(Double scoreAsBuyer) {
+//        this.scoreAsBuyer = scoreAsBuyer;
+//    }
+//
+//    public Double getScoreAsSeller() {
+//        return scoreAsSeller;
+//    }
+//
+//    public void setScoreAsSeller(Double scoreAsSeller) {
+//        this.scoreAsSeller = scoreAsSeller;
+//    }
 
     public int getZipcode() {
         return zipcode;

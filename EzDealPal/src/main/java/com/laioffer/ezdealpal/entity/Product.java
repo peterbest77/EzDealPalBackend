@@ -1,6 +1,8 @@
 package com.laioffer.ezdealpal.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.mapping.ToOne;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -16,18 +18,21 @@ public class Product implements Serializable {
     @Id
     @Column(name="productID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer productID;
+    private int productID;
     private String Url;
     private String productName;
     private String lastModifiedDate;
-    private String pictureID;
     private String productDescription;
     private String productKeywords;
     private String publicDate;
-    private EStatus status;
+    @Column(name="status", nullable = false, columnDefinition = "AVAILABLE")
+    private String status;
+
     private String zipcode;
 
-    private String userId;
+    @ManyToOne
+    @JsonIgnore
+    private User user;
 
 //    @ManyToOne
 //    @JsonIgnore
@@ -50,19 +55,7 @@ public class Product implements Serializable {
 //    }
 
     public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getPictureID() {
-        return pictureID;
-    }
-
-    public void setPictureID(String pictureID) {
-        this.pictureID = pictureID;
+        return user.getUserId();
     }
 
     public String getProductName() {
@@ -112,11 +105,11 @@ public class Product implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-   public EStatus getStatus() {
+   public String getStatus() {
        return status;
    }
 
-   public void setStatus(EStatus status) {
+   public void setStatus(String status) {
        this.status = status;
    }
 
@@ -124,15 +117,7 @@ public class Product implements Serializable {
         return productID;
     }
 
-    public void setProductID(Integer productID) {
-        this.productID = productID;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public int getZipcode() {
+        return user.getZipcode();
     }
 }

@@ -45,8 +45,8 @@ public class SearchService {
         double lat = Double.parseDouble(curZipcode.getLatitude());
         double lon = Double.parseDouble(curZipcode.getLongitude());
         for (Product p : allProducts) {
-            String zip = p.getZipcode();
-            ZipcodeMap productZipcode = zipcodeRepository.getZipcodeMapByZipcode(zip);
+            int zip = p.getZipcode();
+            ZipcodeMap productZipcode = zipcodeRepository.getZipcodeMapByZipcode(String.valueOf(zip));
             double curLat = Double.parseDouble(productZipcode.getLatitude());
             double curLon = Double.parseDouble(productZipcode.getLongitude());
             int distanceOfBuyerAndProduct = (int)(getDistance(lon, lat, curLon, curLat) / 1000);

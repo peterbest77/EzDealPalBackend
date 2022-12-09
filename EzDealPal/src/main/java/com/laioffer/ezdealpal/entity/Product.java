@@ -12,9 +12,6 @@ import java.util.List;
 public class Product implements Serializable {
     private static final long serialVersionUID = 2455760938074036111L;
 
-
-    //private String sellerID;
-    //private String buyerId;
     @Id
     @Column(name="productID")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,17 +25,22 @@ public class Product implements Serializable {
    // @Column(name="status", nullable = false, columnDefinition = "AVAILABLE")
     private String status;
 
-    @ManyToOne
-    @JsonIgnore
-    private ZipcodeMap ZipcodeMap;
+//    public String getZipcode() {
+//        return zipCode;
+//    }
+//
+//    private String zipCode;
+
+    @Column(name="userID", table="users")
+    private String userID;
+
+//    @ManyToOne
+//    @JsonIgnore
+//    private ZipcodeMap zipcode;
 
     @ManyToOne
     @JsonIgnore
     private User user;
-
-//    @ManyToOne
-//    @JsonIgnore
-//    private User user;
 
 //    public String getSellerID() {
 //        return sellerID;
@@ -68,13 +70,13 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-//    public String getUrl() {
-//        return Url;
-//    }
-//
-//    public void setUrl(String url) {
-//        Url = url;
-//    }
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
     public String getProductKeywords() {
         return productKeywords;
     }
@@ -119,7 +121,19 @@ public class Product implements Serializable {
         return productID;
     }
 
-    public String getZipcode() {
-        return ZipcodeMap.getZipcode();
+//    public String getZipcode() {
+//        return ZipcodeMap.getZipcode();
+//    }
+
+    public User getUser() {
+        return user;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+//    public void setZipCode(int zipcode) {
+//        this.zipcode = zipcode;
+
 }

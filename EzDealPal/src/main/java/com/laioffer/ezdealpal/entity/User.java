@@ -24,6 +24,9 @@ public class User implements Serializable {
 
     private String address;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    private List<Product> productsList;
+
 //    private Double scoreAsBuyer;
 //
 //    private Double scoreAsSeller;

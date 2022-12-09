@@ -28,9 +28,19 @@ public class Product implements Serializable {
    // @Column(name="status", nullable = false, columnDefinition = "AVAILABLE")
     private String status;
 
-    @ManyToOne
-    @JsonIgnore
-    private ZipcodeMap ZipcodeMap;
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    private String zipcode;
+
+//    @ManyToOne
+//    @JsonIgnore
+//    private ZipcodeMap ZipcodeMap;
 
     @ManyToOne
     @JsonIgnore
@@ -119,7 +129,11 @@ public class Product implements Serializable {
         return productID;
     }
 
-    public String getZipcode() {
-        return ZipcodeMap.getZipcode();
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

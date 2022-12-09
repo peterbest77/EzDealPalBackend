@@ -19,7 +19,8 @@ public class Product implements Serializable {
     @Column(name="productID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int productID;
-    private String Url;
+
+    private String url;
     private String productName;
     //private String lastModifiedDate;
     private String productDescription;
@@ -78,13 +79,6 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String getUrl() {
-        return Url;
-    }
-
-    public void setUrl(String url) {
-        Url = url;
-    }
     public String getProductKeywords() {
         return productKeywords;
     }
@@ -135,5 +129,14 @@ public class Product implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

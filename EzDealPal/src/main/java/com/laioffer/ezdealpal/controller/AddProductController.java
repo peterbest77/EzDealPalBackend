@@ -18,7 +18,7 @@ public class AddProductController {
 //       return service.saveProduct(product);
 //   }
 
-   @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
+   @RequestMapping(value = "/addProduct", method = RequestMethod.PUT)
    @ResponseStatus(value = HttpStatus.CREATED)
    public void addProduct(@RequestBody Product product) {
       service.saveProduct(product);

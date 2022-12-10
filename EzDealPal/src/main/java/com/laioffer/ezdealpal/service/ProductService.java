@@ -23,7 +23,8 @@ public class ProductService {
        User user = userService.getUserId(username);
 
        product.setUser(user);
-        return repository.save(product);
+       product.setZipcode(String.valueOf(user.getZipcode()));
+       return repository.save(product);
     }
 
     public String deleteProduct(int id) {

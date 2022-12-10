@@ -27,10 +27,17 @@ public class ProductService {
        return repository.save(product);
     }
 
-    public String deleteProduct(int id) {
+    public void deleteProduct(int id) {
+
+        System.out.println("Look at here----------------------------" + id);
         repository.deleteById(id);
-        return "product removed !! " + id;
+//        return "product removed !! " + id;
     }
+
+//    public String deleteProduct() {
+////        repository.deleteById(id);
+//        return "product removed !! ";
+//    }
 
     public Product updateProduct(Product product) {
         Product existingProduct = repository.findById(product.getProductID()).orElse(null);

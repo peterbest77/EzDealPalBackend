@@ -17,7 +17,7 @@ public class Product implements Serializable {
     //private String buyerId;
     @Id
     @Column(name="productID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productID;
 
     private String url;
